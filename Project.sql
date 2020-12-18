@@ -119,6 +119,63 @@ CREATE TABLE InstructorTeachCourse(
 )
 
 
+create table Feedback (
+                          cid int ,
+                          number  int ,
+                          comments varchar (100) ,
+                          numberOfLikes int ,
+                          sid int ,
+                          primary key (cid) ,
+                          primary key (number) ,
+                          foreign key (cid) references  Course ,
+                          foreign key (sid) references  Student
+)
+
+create table Promocode (
+
+                           code varchar(6) ,
+                           issueDate datetime ,
+                           expiryDate datetime ,
+                           discountamount decimal(10,2) ,
+                           adminId int ,
+                           primary key (code) ,
+                           foreign key (adminId) references  Admin
+)
 
 
+create table StudentHasPromcode (
+                                    sid int ,
+                                    code varchar(6) ,
+                                    primary key (sid , code) ,
+                                    foreign key (sid) references  Student ,
+                                    foreign key  (code) references  Promocode
+)
 
+
+create  table  StudentAddCreditCard (
+                                        sid int ,
+                                        creditCardNumber int ,
+                                        primary key  (sid , creditCardNumber) ,
+                                        foreign key  (sid) references  Student ,
+                                        foreign key  (creditCardNumber) references CreditCard
+)
+
+create  table  CreditCard (
+                              number int ,
+                              cardHolderName varchar(16),
+                              expiryDate datetime ,
+                              cvv varchar(3),
+                              primary key  (number) ,
+)
+
+create  table  StudentTakeCourse (
+                                     sid int ,
+                                     cid int ,
+                                     instId int ,
+                                     payedfor decimal(10,2) ,
+                                     grade decimal(10,2) ,
+                                     primary key (sid, cid , instId) ,
+                                     foreign key (sid) references  Student ,
+                                     foreign key (cid) references  Course ,
+                                     foreign key  (instId) references Instructor
+)
