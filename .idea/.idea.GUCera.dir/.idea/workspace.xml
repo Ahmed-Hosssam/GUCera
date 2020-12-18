@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5dbe08d0-e365-421a-a538-a65e561b3b4c" name="Default Changelist" comment="Added new Tables" />
+    <list default="true" id="d41a4f08-5076-4408-b6ec-52823fad0da0" name="Default Changelist" comment="basioni's first commit&#10;my tables">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/b665a922-7b75-4a75-97f6-4108ffe2d8ba.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/b665a922-7b75-4a75-97f6-4108ffe2d8ba.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/b665a922-7b75-4a75-97f6-4108ffe2d8ba/storage_v2/_src_/database/master.YiqNvw/schema/dbo.sYMBAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/b665a922-7b75-4a75-97f6-4108ffe2d8ba/storage_v2/_src_/database/master.YiqNvw/schema/dbo.sYMBAA.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Project.sql" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,10 +16,11 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
+      <option value="$APPLICATION_CONFIG_DIR$/consoles/db/b665a922-7b75-4a75-97f6-4108ffe2d8ba/console.sql" />
       <option value="$PROJECT_DIR$/Project.sql" />
     </changedPaths>
   </component>
-  <component name="ProjectId" id="1lqVqh1OtblOBofuz6SgrTMmYAL" />
+  <component name="ProjectId" id="1lqWuRUlt447Ua5zX27O6XxDJWZ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -28,7 +33,12 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
@@ -47,28 +57,35 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="5dbe08d0-e365-421a-a538-a65e561b3b4c" name="Default Changelist" comment="" />
-      <created>1608324807006</created>
+      <changelist id="d41a4f08-5076-4408-b6ec-52823fad0da0" name="Default Changelist" comment="" />
+      <created>1608325324510</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1608324807006</updated>
-      <workItem from="1608324812036" duration="7030000" />
+      <updated>1608325324510</updated>
+      <workItem from="1608325328202" duration="6265000" />
     </task>
-    <task id="LOCAL-00001" summary="test">
-      <created>1608328503512</created>
+    <task id="LOCAL-00001" summary="first">
+      <created>1608328407060</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1608328503512</updated>
+      <updated>1608328407060</updated>
     </task>
-    <task id="LOCAL-00002" summary="Added new Tables">
-      <created>1608331279695</created>
+    <task id="LOCAL-00002" summary="basioni's first commit&#10;my tables">
+      <created>1608331294372</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1608331279695</updated>
+      <updated>1608331294372</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="basioni's first commit&#10;my tables">
+      <created>1608331302044</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1608331302044</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -89,12 +106,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="test" />
-    <MESSAGE value="Added new Tables" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added new Tables" />
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
+    <MESSAGE value="first" />
+    <MESSAGE value="basioni's first commit&#10;my tables" />
+    <option name="LAST_COMMIT_MESSAGE" value="basioni's first commit&#10;my tables" />
   </component>
 </project>
