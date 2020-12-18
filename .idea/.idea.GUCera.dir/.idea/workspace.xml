@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d41a4f08-5076-4408-b6ec-52823fad0da0" name="Default Changelist" comment="first">
+    <list default="true" id="d41a4f08-5076-4408-b6ec-52823fad0da0" name="Default Changelist" comment="basioni's first commit&#10;my tables">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/b665a922-7b75-4a75-97f6-4108ffe2d8ba.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/b665a922-7b75-4a75-97f6-4108ffe2d8ba.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/b665a922-7b75-4a75-97f6-4108ffe2d8ba/storage_v2/_src_/database/master.YiqNvw/schema/dbo.sYMBAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/b665a922-7b75-4a75-97f6-4108ffe2d8ba/storage_v2/_src_/database/master.YiqNvw/schema/dbo.sYMBAA.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Project.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Project.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,7 +62,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1608325324510</updated>
-      <workItem from="1608325328202" duration="5848000" />
+      <workItem from="1608325328202" duration="6265000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1608328407060</created>
@@ -69,7 +71,21 @@
       <option name="project" value="LOCAL" />
       <updated>1608328407060</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="basioni's first commit&#10;my tables">
+      <created>1608331294372</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1608331294372</updated>
+    </task>
+    <task id="LOCAL-00003" summary="basioni's first commit&#10;my tables">
+      <created>1608331302044</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1608331302044</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -91,6 +107,7 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="first" />
-    <option name="LAST_COMMIT_MESSAGE" value="first" />
+    <MESSAGE value="basioni's first commit&#10;my tables" />
+    <option name="LAST_COMMIT_MESSAGE" value="basioni's first commit&#10;my tables" />
   </component>
 </project>
