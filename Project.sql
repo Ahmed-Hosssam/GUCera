@@ -11,28 +11,29 @@ create table Users
     lastName varchar(20),
     password varchar(20),
     gender bit,
-    address varchar(10)
+    address varchar(10),
+    PRIMARY key (id)
 )
 
 create table Instructor
 (
-    uid int,
+    id int,
     rating int,
-    FOREIGN Key (uid) references Users,
-    PRIMARY KEY (uid)
+    FOREIGN Key (id) references Users,
+    PRIMARY KEY (id)
 )
 
-create table UserMobileNumber 
+create table UserMobileNumber
 (
-    uid int,
+    id int,
     mobileNumber varchar(20),
-    FOREIGN key (uid) references Users,
-    PRIMARY key (uid, mobileNumber)
+    FOREIGN key (id) references Users,
+    PRIMARY key (id, mobileNumber)
 )
 
 create table Student
 (
-    uid int,
+    id int,
     gpa real,
     Primary key (id),
     foreign key (id) references Users
@@ -40,9 +41,38 @@ create table Student
 
 create table Admin
 (
-    uid int,
-    primary key (uid),
-    
+    id int,
+    primary key (id),
+    foreign key (id) references Users
+)
+create table Course
+(
+    id int identity,
+    creditHours int,
+    name varchar(20),
+    courseDescription varchar(200),
+    price real,
+    content varchar(200),
+    adminId int,
+    instructorId int,
+    accepted bit,
+    primary key (id),
+    foreign key (adminId) references Admin,
+    foreign key (instructorId) references Instructor
+)
+
+create table Assignment
+(
+    cid int,
+    number int,
+    type varchar(10),
+    fullGrade int,
+    weight decimal(4,1),
+    deadline datetime,
+    content varchar(200),
+    PRIMARY KEY (cid, number, type),
+    foreign key (cid) references Course
+
 )
 
 
@@ -88,47 +118,6 @@ create table Admin
 
 
 
-
-
-
-
-
-create table Feedback (
-    cid int ,
-    number  int ,
-    ommentvarchar (100) ,
-    numberOfLint ,
-    sid ikes s c
-)  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Create TABLE StudentTakeAssignmentsi(d
- in t
- ,
-    ci idnt,
-    
-       in int,
-    t cid,
-    assignmentTaype vrchar ,
-    grade,
-    FOREIGN Key (sid) references Student,
-    FOREIGN Key (cid) references ASSIGNMENT,
-    FOREIGN Key (assignmentNumber) references Student,
-    FOREIGN Key (sid) references Student, real   int sid,
-)
 
 
 
