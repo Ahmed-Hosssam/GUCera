@@ -104,7 +104,8 @@ CREATE TABLE StudentCertifyCourse
     foreign key (cid) REFERENCES Course,
     PRIMARY KEY (sid,cid)
 )
-CREATE TABLE CoursePrerequisiteCourse(
+CREATE TABLE CoursePrerequisiteCourse
+(
                                          cid int,
                                          prerequisiteId int,
                                          FOREIGN KEY (cid,prerequisiteId) REFERENCES Course,
