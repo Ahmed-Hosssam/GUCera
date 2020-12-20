@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d41a4f08-5076-4408-b6ec-52823fad0da0" name="Default Changelist" comment="basioni's first commit&#10;my tables">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/b665a922-7b75-4a75-97f6-4108ffe2d8ba.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/b665a922-7b75-4a75-97f6-4108ffe2d8ba.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/b665a922-7b75-4a75-97f6-4108ffe2d8ba/storage_v2/_src_/database/master.YiqNvw/schema/dbo.sYMBAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/b665a922-7b75-4a75-97f6-4108ffe2d8ba/storage_v2/_src_/database/master.YiqNvw/schema/dbo.sYMBAA.meta" afterDir="false" />
+    <list default="true" id="d41a4f08-5076-4408-b6ec-52823fad0da0" name="Default Changelist" comment="Added Tables">
+      <change afterPath="$PROJECT_DIR$/procedures.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Project.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Project.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -13,11 +16,13 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$APPLICATION_CONFIG_DIR$/consoles/db/b665a922-7b75-4a75-97f6-4108ffe2d8ba/console.sql" />
       <option value="$PROJECT_DIR$/Project.sql" />
+      <option value="$PROJECT_DIR$/procedures.sql" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1lqWuRUlt447Ua5zX27O6XxDJWZ" />
@@ -29,7 +34,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="sqlserver" />
-    <property name="RunConfigurationTargetLRU" value="b665a922-7b75-4a75-97f6-4108ffe2d8ba" />
+    <property name="RunConfigurationTargetLRU" value="b665a922-7b75-4a75-97f6-4108ffe2d8ba&#10;283d9439-7d70-46e8-b4a8-a9df1af56bf0" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -45,7 +50,7 @@
     <configuration name="Project.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
       <script-file value="$PROJECT_DIR$/Project.sql" />
       <script-mode>FILE</script-mode>
-      <data-source id="b665a922-7b75-4a75-97f6-4108ffe2d8ba" />
+      <data-source id="283d9439-7d70-46e8-b4a8-a9df1af56bf0" />
       <method v="2" />
     </configuration>
     <recent_temporary>
@@ -63,6 +68,8 @@
       <option name="presentableId" value="Default" />
       <updated>1608325324510</updated>
       <workItem from="1608325328202" duration="6265000" />
+      <workItem from="1608332445547" duration="396000" />
+      <workItem from="1608419713016" duration="7287000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1608328407060</created>
@@ -85,13 +92,27 @@
       <option name="project" value="LOCAL" />
       <updated>1608331302044</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added Tables">
+      <created>1608332512420</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1608332512420</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added Tables">
+      <created>1608332735208</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1608332735208</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -103,11 +124,13 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="first" />
     <MESSAGE value="basioni's first commit&#10;my tables" />
-    <option name="LAST_COMMIT_MESSAGE" value="basioni's first commit&#10;my tables" />
+    <MESSAGE value="Added Tables" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Tables" />
   </component>
 </project>
