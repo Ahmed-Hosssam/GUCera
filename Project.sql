@@ -62,14 +62,13 @@ create table Assignment
 (
     cid       int,
     number    int,
-    type      varchar(10),
+    type     varchar(10),
     fullGrade int,
     weight    decimal(4, 1),
     deadline  datetime,
     content   varchar(200),
     PRIMARY KEY (cid, number, type),
     foreign key (cid) references Course
-
 )
 
 
@@ -78,11 +77,11 @@ Create TABLE StudentTakeAssignment
     sid              int,
     cid              int,
     assignmentNumber int,
-    assignmentType   varchar,
+    assignmentType   varchar(10),
     grade            decimal(5, 2),
+    PRIMARY KEY (sid, cid, assignmentNumber, assignmentType, grade),
     FOREIGN Key (sid) references Student,
     FOREIGN Key (cid, assignmentNumber, assignmentType) references ASSIGNMENT,
-    PRIMARY KEY (sid, cid, assignmentNumber, assignmentType, grade)
 )
 CREATE TABLE StudentRateInstructor
 (
@@ -104,9 +103,11 @@ CREATE TABLE CoursePrerequisiteCourse
 (
     cid            int,
     prerequisiteId int,
-    FOREIGN KEY (cid, prerequisiteId) REFERENCES Course,
+    FOREIGN KEY (cid) REFERENCES Course,
+    FOREIGN KEY (prerequisiteId) REFERENCES Course,
     primary KEY (cid, prerequisiteId)
 )
+
 CREATE TABLE InstructorTeachCourse
 (
     instId int,
@@ -124,8 +125,7 @@ create table Feedback
     comments      varchar(100),
     numberOfLikes int,
     sid           int,
-    primary key (cid),
-    primary key (number),
+    primary key (cid , number),
     foreign key (cid) references Course,
     foreign key (sid) references Student
 )
@@ -153,14 +153,6 @@ create table StudentHasPromcode
 )
 
 
-create table StudentAddCreditCard
-(
-    sid              int,
-    creditCardNumber int,
-    primary key (sid, creditCardNumber),
-    foreign key (sid) references Student,
-    foreign key (creditCardNumber) references CreditCard
-)
 
 create table CreditCard
 (
@@ -169,6 +161,15 @@ create table CreditCard
     expiryDate     datetime,
     cvv            varchar(3),
     primary key (number),
+)
+
+create table StudentAddCreditCard
+(
+    sid              int,
+    creditCardNumber int,
+    primary key (sid, creditCardNumber),
+    foreign key (sid) references Student,
+    foreign key (creditCardNumber) references CreditCard
 )
 
 create table StudentTakeCourse
