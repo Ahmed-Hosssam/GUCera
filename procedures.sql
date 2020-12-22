@@ -19,19 +19,19 @@ go;
 
 -- login
 create proc userLogin
-    @id int, @password varchar(20),
+    @ID int, @password varchar(20),
     @success bit output 
     as
     select @success = count(*) 
     from Users u
-    where u.id = @id and u.password = @password
+    where u.id = @ID and u.password = @password
 go;
 
 -- add my telephone number(s)
 create proc addMobile
-    @id int, @mobile_number varchar(20)
+    @ID int, @mobile_number varchar(20)
     as
-    insert into UserMobileNumber (id, mobileNumber) values (@id, @mobile_number)
+    insert into UserMobileNumber (id, mobileNumber) values (@ID, @mobile_number)
 go;
 
 -- List all instructors in the system.
@@ -78,8 +78,13 @@ go;
 
 -- Accept/Reject any of the requested courses that are added by instructors.
 
-
-
+create proc AdminAcceptRejectCourse
+    @adminId int,@courseId int
+    as
+    update Course
+    set adminId = @adminId, accepted = 1
+    where id = @courseId
+go;
 
 
 
