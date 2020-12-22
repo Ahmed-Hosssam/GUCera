@@ -1,4 +1,101 @@
-﻿/*3 - h List all students in the system */
+﻿-- Register to the website 
+
+create proc studentRegister 
+    @first_name varchar(20), @last_name varchar(20), @password varchar(20), @email varchar(50),
+    @gender bit, @address varchar(10)
+    as
+    insert into Users (firstName, lastName, password, gender, address)
+    values (@first_name,@last_name,@password,@gender,@address)
+    
+go;
+
+ create proc InstructorRegister
+     @first_name varchar(20), @last_name varchar(20), @password varchar(20), @email varchar(50),
+     @gender bit, @address varchar(10)
+    as
+    insert into Users (firstName, lastName, password, gender, address)
+    values (@first_name,@last_name,@password,@gender,@address)
+ go;
+
+-- login
+create proc userLogin
+    @id int, @password varchar(20),
+    @success bit output 
+    as
+    select @success = count(*) 
+    from Users u
+    where u.id = @id and u.password = @password
+go;
+
+-- add my telephone number(s)
+create proc addMobile
+    @id int, @mobile_number varchar(20)
+    as
+    insert into UserMobileNumber (id, mobileNumber) values (@id, @mobile_number)
+go;
+
+-- List all instructors in the system.
+create proc AdminListInstr
+    as 
+    select u.firstName, u.lastName, u.address, u,gender
+    from Instructor i 
+    inner join Users u on i.id=u.id
+go;
+
+-- view the profile of any instructor that contains all his/her information.
+create proc AdminViewInstructorProfile
+    @instrId int
+    as
+    select u.firstName, u.lastName, u.address, u,gender
+    from Instructor i
+    inner join Users u on i.id=u.id
+    where u.id = @instrId
+go;
+
+-- List all courses in the system.
+create proc AdminViewAllCourses
+    as 
+    select *
+    from Course 
+go;
+
+-- List all the courses added by instructors not yet accepted.
+create proc AdminViewNonAcceptedCourses
+    as
+    select *
+    from Course
+    where accepted = 0
+go;
+
+-- View any course details such as course description and content.
+create proc AdminViewCourseDetails
+    @courseId int
+    as
+    select *
+    from Course
+    where id = @courseId
+go;
+
+-- Accept/Reject any of the requested courses that are added by instructors.
+
+
+
+
+
+
+
+
+-- Create new Promo codes by inserting all promo code details.
+create proc AdminCreatePromocode
+    @code varchar(6), @isuueDate datetime, @expiryDate datetime, @discount decimal(4,2), @adminId int
+    as
+    insert into Promocode (code, issueDate, expiryDate, discountamount, adminId)
+    values (@code,@isuueDate,@expiryDate,@discount,@adminId)
+go;
+
+    
+
+/*3 - h List all students in the system */
 create  proc AdminListAllStudents
 as 
 select  *
@@ -23,7 +120,7 @@ create proc AdminIssuePromocodeToStudent
 sid int ,
 pid varchar(6) 
 as
-insert into StudentHasPromcode values (sid , pid) 
+insert into StudentHasPromocode values (sid , pid) 
 
 
 
