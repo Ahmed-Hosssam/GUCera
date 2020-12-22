@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="Microsoft SQL Server (jTds) -" uuid="b665a922-7b75-4a75-97f6-4108ffe2d8ba">
+    <data-source name="Microsoft SQL Server (jTds) - [2]" uuid="803b3a0d-ba91-4a8e-bbce-b2f2c1768e49">
       <database-info product="Microsoft SQL Server" version="14.00.1000" jdbc-version="3.0" driver-name="jTDS Type 4 JDBC Driver for MS SQL Server and Sybase" driver-version="1.3.1" dbms="MSSQL" exact-version="14.0.1000" exact-driver-version="1.3">
         <extra-name-characters>$#@</extra-name-characters>
         <identifier-quote-string>&quot;</identifier-quote-string>
@@ -14,7 +14,9 @@
             <node kind="database" qname="@">
               <node kind="schema" qname="@" />
             </node>
-            <node kind="database" qname="GUCera">
+            <node kind="database">
+              <name qname="GUCera" />
+              <name qname="master" />
               <node kind="schema" qname="dbo" />
             </node>
           </node>

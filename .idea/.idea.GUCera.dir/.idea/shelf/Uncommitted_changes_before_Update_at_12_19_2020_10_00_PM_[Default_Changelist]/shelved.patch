@@ -1,0 +1,101 @@
+Index: Project.sql
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>create database GUCera;\r\n\r\n\r\n\r\n\r\n\r\ncreate table Users\r\n(\r\n    id int identity,\r\n    firstName varchar(20),\r\n    lastName varchar(20),\r\n    password varchar(20),\r\n    gender bit,\r\n    address varchar(10),\r\n    PRIMARY key (id)\r\n)\r\n\r\ncreate table Instructor\r\n(\r\n    id int,\r\n    rating int,\r\n    FOREIGN Key (id) references Users,\r\n    PRIMARY KEY (id)\r\n)\r\n\r\ncreate table UserMobileNumber\r\n(\r\n    id int,\r\n    mobileNumber varchar(20),\r\n    FOREIGN key (id) references Users,\r\n    PRIMARY key (id, mobileNumber)\r\n)\r\n\r\ncreate table Student\r\n(\r\n    id int,\r\n    gpa real,\r\n    Primary key (id),\r\n    foreign key (id) references Users\r\n)\r\n\r\ncreate table Admin\r\n(\r\n    id int,\r\n    primary key (id),\r\n    foreign key (id) references Users\r\n)\r\ncreate table Course\r\n(\r\n    id int identity,\r\n    creditHours int,\r\n    name varchar(20),\r\n    courseDescription varchar(200),\r\n    price real,\r\n    content varchar(200),\r\n    adminId int,\r\n    instructorId int,\r\n    accepted bit,\r\n    primary key (id),\r\n    foreign key (adminId) references Admin,\r\n    foreign key (instructorId) references Instructor\r\n)\r\n\r\ncreate table Assignment\r\n(\r\n    cid int,\r\n    number int,\r\n    type varchar(10),\r\n    fullGrade int,\r\n    weight decimal(4,1),\r\n    deadline datetime,\r\n    content varchar(200),\r\n    PRIMARY KEY (cid, number, type),\r\n    foreign key (cid) references Course\r\n\r\n)\r\n\r\n\r\n\r\nCreate TABLE StudentTakeAssignment\r\n(\r\n    sid              int,\r\n    cid              int,\r\n    assignmentNumber int,\r\n    assignmentType   varchar,\r\n    grade            decimal(5,2),\r\n    FOREIGN Key (sid) references Student,\r\n    FOREIGN Key (cid,assignmentNumber,assignmentType) references ASSIGNMENT,\r\n    PRIMARY KEY (sid, cid, assignmentNumber, assignmentType, grade)\r\n)\r\nCREATE TABLE StudentRateInstructor\r\n(\r\n    sid    int,\r\n    instId int,\r\n    rate   int,\r\n    PRIMARY KEY (sid, instId)\r\n)\r\nCREATE TABLE StudentCertifyCourse\r\n(\r\n    sid int,\r\n    cid int ,\r\n    issueDate DATETIME,\r\n    FOREIGN KEY (sid) REFERENCES Student,\r\n    foreign key (cid) REFERENCES Course,\r\n    PRIMARY KEY (sid,cid)\r\n)\r\nCREATE TABLE CoursePrerequisiteCourse(\r\n                                         cid int,\r\n                                         prerequisiteId int,\r\n                                         FOREIGN KEY (cid,prerequisiteId) REFERENCES Course,\r\n                                         primary KEY  (cid,prerequisiteId)\r\n)\r\nCREATE TABLE InstructorTeachCourse(\r\n                                      instId int,\r\n                                      cid int,\r\n                                      FOREIGN KEY (instId) REFERENCES Instructor,\r\n                                      FOREIGN KEY (cid) REFERENCES Course,\r\n                                      PRIMARY KEY (instId,cid)\r\n)\r\n\r\n\r\ncreate table Feedback (\r\n                          cid int ,\r\n                          number  int ,\r\n                          comments varchar (100) ,\r\n                          numberOfLikes int ,\r\n                          sid int ,\r\n                          primary key (cid) ,\r\n                          primary key (number) ,\r\n                          foreign key (cid) references  Course ,\r\n                          foreign key (sid) references  Student\r\n)\r\n\r\ncreate table Promocode (\r\n\r\n                           code varchar(6) ,\r\n                           issueDate datetime ,\r\n                           expiryDate datetime ,\r\n                           discountamount decimal(10,2) ,\r\n                           adminId int ,\r\n                           primary key (code) ,\r\n                           foreign key (adminId) references  Admin\r\n)\r\n\r\n\r\ncreate table StudentHasPromcode (\r\n                                    sid int ,\r\n                                    code varchar(6) ,\r\n                                    primary key (sid , code) ,\r\n                                    foreign key (sid) references  Student ,\r\n                                    foreign key  (code) references  Promocode\r\n)\r\n\r\n\r\ncreate  table  StudentAddCreditCard (\r\n                                        sid int ,\r\n                                        creditCardNumber int ,\r\n                                        primary key  (sid , creditCardNumber) ,\r\n                                        foreign key  (sid) references  Student ,\r\n                                        foreign key  (creditCardNumber) references CreditCard\r\n)\r\n\r\ncreate  table  CreditCard (\r\n                              number int ,\r\n                              cardHolderName varchar(16),\r\n                              expiryDate datetime ,\r\n                              cvv varchar(3),\r\n                              primary key  (number) ,\r\n)\r\n\r\ncreate  table  StudentTakeCourse (\r\n                                     sid int ,\r\n                                     cid int ,\r\n                                     instId int ,\r\n                                     payedfor decimal(10,2) ,\r\n                                     grade decimal(10,2) ,\r\n                                     primary key (sid, cid , instId) ,\r\n                                     foreign key (sid) references  Student ,\r\n                                     foreign key (cid) references  Course ,\r\n                                     foreign key  (instId) references Instructor\r\n)
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Project.sql b/Project.sql
+--- a/Project.sql	(revision 5879cd7aa67b5e461293b7bf09cc20d996930202)
++++ b/Project.sql	(date 1608332602147)
+@@ -169,13 +169,13 @@
+ )
+ 
+ create  table  StudentTakeCourse (
+-                                     sid int ,
+-                                     cid int ,
+-                                     instId int ,
+-                                     payedfor decimal(10,2) ,
+-                                     grade decimal(10,2) ,
+-                                     primary key (sid, cid , instId) ,
+-                                     foreign key (sid) references  Student ,
+-                                     foreign key (cid) references  Course ,
+-                                     foreign key  (instId) references Instructor
++    sid int ,
++    cid int ,
++    instId int ,
++    payedfor decimal(10,2) ,
++    grade decimal(10,2) ,
++    primary key (sid, cid , instId) ,
++    foreign key (sid) references  Student ,
++    foreign key (cid) references  Course ,
++    foreign key  (instId) references Instructor
+ )
+\ No newline at end of file
+Index: .idea/.idea.GUCera.dir/.idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"d41a4f08-5076-4408-b6ec-52823fad0da0\" name=\"Default Changelist\" comment=\"basioni's first commit&#10;my tables\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/b665a922-7b75-4a75-97f6-4108ffe2d8ba.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/b665a922-7b75-4a75-97f6-4108ffe2d8ba.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/b665a922-7b75-4a75-97f6-4108ffe2d8ba/storage_v2/_src_/database/master.YiqNvw/schema/dbo.sYMBAA.meta\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/b665a922-7b75-4a75-97f6-4108ffe2d8ba/storage_v2/_src_/database/master.YiqNvw/schema/dbo.sYMBAA.meta\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Project.sql\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Project.sql\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"IdeDocumentHistory\">\r\n    <changedPaths>\r\n      <option value=\"$APPLICATION_CONFIG_DIR$/consoles/db/b665a922-7b75-4a75-97f6-4108ffe2d8ba/console.sql\" />\r\n      <option value=\"$PROJECT_DIR$/Project.sql\" />\r\n    </changedPaths>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1lqWuRUlt447Ua5zX27O6XxDJWZ\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"ASKED_SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\r\n    <property name=\"DatabaseDriversLRU\" value=\"sqlserver\" />\r\n    <property name=\"RunConfigurationTargetLRU\" value=\"b665a922-7b75-4a75-97f6-4108ffe2d8ba\" />\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"node.js.detected.package.eslint\" value=\"true\" />\r\n    <property name=\"node.js.detected.package.tslint\" value=\"true\" />\r\n    <property name=\"node.js.path.for.package.eslint\" value=\"project\" />\r\n    <property name=\"node.js.path.for.package.tslint\" value=\"project\" />\r\n    <property name=\"node.js.selected.package.eslint\" value=\"(autodetect)\" />\r\n    <property name=\"node.js.selected.package.tslint\" value=\"(autodetect)\" />\r\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"Project.sql\" type=\"DatabaseScript\" editBeforeRun=\"true\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <script-file value=\"$PROJECT_DIR$/Project.sql\" />\r\n      <script-mode>FILE</script-mode>\r\n      <data-source id=\"b665a922-7b75-4a75-97f6-4108ffe2d8ba\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Database Script.Project.sql\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"d41a4f08-5076-4408-b6ec-52823fad0da0\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1608325324510</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1608325324510</updated>\r\n      <workItem from=\"1608325328202\" duration=\"6265000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"first\">\r\n      <created>1608328407060</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1608328407060</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"basioni's first commit&#10;my tables\">\r\n      <created>1608331294372</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1608331294372</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"basioni's first commit&#10;my tables\">\r\n      <created>1608331302044</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1608331302044</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"4\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"UnityProjectConfiguration\" hasMinimizedUI=\"null\" />\r\n  <component name=\"UnityUnitTestConfiguration\" currentTestLauncher=\"NUnit\" />\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"CLEAR_INITIAL_COMMIT_MESSAGE\" value=\"true\" />\r\n    <MESSAGE value=\"first\" />\r\n    <MESSAGE value=\"basioni's first commit&#10;my tables\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"basioni's first commit&#10;my tables\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.idea.GUCera.dir/.idea/workspace.xml b/.idea/.idea.GUCera.dir/.idea/workspace.xml
+--- a/.idea/.idea.GUCera.dir/.idea/workspace.xml	(revision 5879cd7aa67b5e461293b7bf09cc20d996930202)
++++ b/.idea/.idea.GUCera.dir/.idea/workspace.xml	(date 1608408004837)
+@@ -1,9 +1,8 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ChangeListManager">
+-    <list default="true" id="d41a4f08-5076-4408-b6ec-52823fad0da0" name="Default Changelist" comment="basioni's first commit&#10;my tables">
+-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/b665a922-7b75-4a75-97f6-4108ffe2d8ba.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/b665a922-7b75-4a75-97f6-4108ffe2d8ba.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/b665a922-7b75-4a75-97f6-4108ffe2d8ba/storage_v2/_src_/database/master.YiqNvw/schema/dbo.sYMBAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/b665a922-7b75-4a75-97f6-4108ffe2d8ba/storage_v2/_src_/database/master.YiqNvw/schema/dbo.sYMBAA.meta" afterDir="false" />
++    <list default="true" id="d41a4f08-5076-4408-b6ec-52823fad0da0" name="Default Changelist" comment="Added new Tables">
++      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/Project.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Project.sql" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+@@ -13,6 +12,9 @@
+   </component>
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++  </component>
++  <component name="HighlightingSettingsPerFile">
++    <setting file="mock://C:/Users/Mohammed Basioni/RiderProjects/GUCera/.idea/.idea.GUCera.dir/.idea/dataSources/b665a922-7b75-4a75-97f6-4108ffe2d8ba/storage_v2/_src_/database/master.YiqNvw/schema/dbo.sYMBAA.meta" root0="SKIP_HIGHLIGHTING" />
+   </component>
+   <component name="IdeDocumentHistory">
+     <changedPaths>
+@@ -62,7 +64,7 @@
+       <option name="number" value="Default" />
+       <option name="presentableId" value="Default" />
+       <updated>1608325324510</updated>
+-      <workItem from="1608325328202" duration="6265000" />
++      <workItem from="1608325328202" duration="8092000" />
+     </task>
+     <task id="LOCAL-00001" summary="first">
+       <created>1608328407060</created>
+@@ -85,7 +87,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1608331302044</updated>
+     </task>
+-    <option name="localTasksCounter" value="4" />
++    <task id="LOCAL-00004" summary="Added new Tables">
++      <created>1608331803749</created>
++      <option name="number" value="00004" />
++      <option name="presentableId" value="LOCAL-00004" />
++      <option name="project" value="LOCAL" />
++      <updated>1608331803749</updated>
++    </task>
++    <option name="localTasksCounter" value="5" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -108,6 +117,7 @@
+     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+     <MESSAGE value="first" />
+     <MESSAGE value="basioni's first commit&#10;my tables" />
+-    <option name="LAST_COMMIT_MESSAGE" value="basioni's first commit&#10;my tables" />
++    <MESSAGE value="Added new Tables" />
++    <option name="LAST_COMMIT_MESSAGE" value="Added new Tables" />
+   </component>
+ </project>
+\ No newline at end of file
