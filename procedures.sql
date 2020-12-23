@@ -52,7 +52,7 @@ where Course.id =  courseId and EXISTS (
               where IT.instId = instrId and IT.cid = courseId
           )
 
-/* how to change only one */
+
 
     
 

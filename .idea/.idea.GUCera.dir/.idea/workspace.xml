@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d41a4f08-5076-4408-b6ec-52823fad0da0" name="Default Changelist" comment="Added Tables">
-      <change afterPath="$PROJECT_DIR$/procedures.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/sqldialects.xml" afterDir="false" />
+    <list default="true" id="d41a4f08-5076-4408-b6ec-52823fad0da0" name="Default Changelist" comment="procedures on update">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/b665a922-7b75-4a75-97f6-4108ffe2d8ba.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/b665a922-7b75-4a75-97f6-4108ffe2d8ba/storage_v2/_src_/database/GUCera.H-D1fQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/b665a922-7b75-4a75-97f6-4108ffe2d8ba/storage_v2/_src_/database/GUCera.H-D1fQ/schema/INFORMATION_SCHEMA.NBgcMw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/b665a922-7b75-4a75-97f6-4108ffe2d8ba/storage_v2/_src_/database/GUCera.H-D1fQ/schema/sys.zb4BAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/b665a922-7b75-4a75-97f6-4108ffe2d8ba/storage_v2/_src_/database/master.YiqNvw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/b665a922-7b75-4a75-97f6-4108ffe2d8ba/storage_v2/_src_/database/master.YiqNvw/schema/INFORMATION_SCHEMA.NBgcMw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/b665a922-7b75-4a75-97f6-4108ffe2d8ba/storage_v2/_src_/database/master.YiqNvw/schema/dbo.sYMBAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/b665a922-7b75-4a75-97f6-4108ffe2d8ba/storage_v2/_src_/database/master.YiqNvw/schema/dbo.sYMBAA.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/b665a922-7b75-4a75-97f6-4108ffe2d8ba/storage_v2/_src_/database/master.YiqNvw/schema/sys.zb4BAA.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Project.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +73,9 @@
       <updated>1608325324510</updated>
       <workItem from="1608325328202" duration="6265000" />
       <workItem from="1608332445547" duration="396000" />
-      <workItem from="1608419713016" duration="7287000" />
+      <workItem from="1608419713016" duration="7443000" />
+      <workItem from="1608553654007" duration="197000" />
+      <workItem from="1608680740867" duration="685000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1608328407060</created>
@@ -106,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608332735208</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="procedures on update">
+      <created>1608428022747</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1608428022747</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -131,6 +144,7 @@
     <MESSAGE value="first" />
     <MESSAGE value="basioni's first commit&#10;my tables" />
     <MESSAGE value="Added Tables" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Tables" />
+    <MESSAGE value="procedures on update" />
+    <option name="LAST_COMMIT_MESSAGE" value="procedures on update" />
   </component>
 </project>
