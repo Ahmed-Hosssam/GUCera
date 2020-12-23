@@ -105,54 +105,111 @@ create  proc AdminListAllStudents
 as 
 select  *
 from Student
+GO;
 
 
 /*view the profile of any student that contains all his/her information*/
     
 create proc AdminViewStudentProfile 
-sid int 
+@sid int 
 as
 select * 
-from Student inner join Users U on Student.id = U.id
-where   Student.id is not null and Student.gpa is not null and u.firstName is not null and u.lastName is not null and u.password is not null
-  and u.address is not null and u.gender is not null
+from Student inner join Users  on Student.id = Users.id
+where  @sid = Student.id and Student.id is not null and Student.gpa is not null and Users.firstName is not null and Users.lastName is not null and Users.password is not null
+  and Users.address is not null and Users.gender is not null
+GO;
 
 /*   (Student.id or Student.gpa or u.gender or u.address or u.firstName or u.lastName or u.password) is not null
 */
 
 /* Issue the promo code created to any student. */    
 create proc AdminIssuePromocodeToStudent
-sid int ,
-pid varchar(6) 
+@sid int ,
+@pid varchar(6) 
 as
-insert into StudentHasPromocode values (sid , pid) 
+insert into StudentHasPromocode values (@sid , @pid)
+GO;
 
 
 
 /* Add new course with its details. */
 
 create proc InstAddCourse
-creditHours int ,
-name varchar(10), 
-price DECIMAL(6,2),
-instructorId int
+@creditHours int ,
+@name varchar(10), 
+@price DECIMAL(6,2),
+@instructorId int
 as 
-insert into Course (creditHours , name , price , instructorId ) values (creditHours , name , price , instructorId) 
+insert into Course (creditHours , name , price , instructorId ) values (@creditHours , @name , @price , @instructorId)
+GO;
 
 
 /* Choose any of my course to edit its description or content  */
 create proc UpdateCourseContent
-instrId int, 
-courseId int,
-content varchar(20)
+@instrId int, 
+@courseId int,
+@content varchar(20)
 as 
 update Course
 set Course.courseDescription = content
-where Course.id =  courseId and EXISTS (
+where Course.id =  @courseId and EXISTS (
               select *
               from InstructorTeachCourse IT
-              where IT.instId = instrId and IT.cid = courseId
+              where IT.instId = @instrId and IT.cid = @courseId
           )
+GO;
+
+    
+-- Add another instructors to the course. 
+
+create proc AddAnotherInstructorToCourse
+@insid int,
+@cid int,
+@adderIns int
+as 
+insert into InstructorTeachCourse values (@insId , @cid)
+GO;
+
+
+
+-- View my courses that were accepted by the admin 
+create proc InstructorViewAcceptedCoursesByAdmin
+@instrId int 
+as
+select Course.id 
+from  Course inner join InstructorTeachCourse on Course.id = InstructorTeachCourse.cid
+where instId = @instrId and Course.accepted = 1
+GO;
+
+    
+-- specify the course pre-requisites. 
+create proc DefineCoursePrerequisites
+@cid int , 
+@prerequsiteId int
+as 
+insert into CoursePrerequisiteCourse values (@cid , @prerequsiteId)
+GO;
+
+
+-- Choose a course to define assignments of different types 
+create proc DefineAssignmentOfCourseOfCertianType
+@instId int, 
+@cid int , 
+@number int, 
+@type varchar(10), 
+@fullGrade int, 
+@weight decimal(4,1), 
+@deadline datetime, 
+@content varchar(200)
+as
+
+if exists (select  * 
+    from  InstructorTeachCourse 
+    where instId = @instId and cid = @cid 
+    )      
+insert into Assignment values (@cid , @number , @type , @fullGrade , @weight , @deadline , @content)
+GO;
+
 
 
 
