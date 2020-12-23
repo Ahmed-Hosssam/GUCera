@@ -143,7 +143,7 @@ create table Promocode
 )
 
 
-create table StudentHasPromcode
+create table StudentHasPromocode
 (
     sid  int,
     code varchar(6),
