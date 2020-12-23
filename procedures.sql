@@ -202,12 +202,13 @@ create proc DefineAssignmentOfCourseOfCertianType
 @deadline datetime, 
 @content varchar(200)
 as
-
 if exists (select  * 
     from  InstructorTeachCourse 
     where instId = @instId and cid = @cid 
-    )      
+    )
+begin
 insert into Assignment values (@cid , @number , @type , @fullGrade , @weight , @deadline , @content)
+end
 GO;
 
 
