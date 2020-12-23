@@ -213,6 +213,104 @@ GO;
 
 
 
+----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
+-------- NOT FINALIZED YET / MAHMOUD JOBEEL --------------------------------------------
+-----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
+
+
+---g
+go
+create  procedure viewPromocode @sid int
+as
+select code,issueDate,expiryDate,discountamount,adminId from Promocode
+inner join StudentHasPromocode on Promocode.code=StudentHasPromocode.code
+where StudentHasPromocode.sid=@sid
+
+---h
+go
+create  procedure  payCourse @cid INT, @sid INT
+as
+insert into StudentTakeCourse (sid, cid, payedfor) values (@sid,@cid,1)
+
+---i
+go
+create  procedure enrollInCourseViewContent  @id int, @cid int
+as
+select  id,creditHours,name,courseDescription,price,content from Course
+inner join  StudentTakeCourse on Course.id = StudentTakeCourse.cid
+where StudentTakeCourse.sid=@id and Course.id=@cid
+
+---j
+go
+create  procedure viewAssign @courseId int, @Sid int
+as
+select cid,number,type,fullGrade,weight,deadline,content from Assignment
+inner join StudentTakeAssignment on Assignment.cid=StudentTakeAssignment.cid
+where @Sid=StudentTakeAssignment.sid
+
+---k
+go
+create procedure submitAssign @assignType VARCHAR(10), @assignnumber int, @sid INT, @cid INT
+as
+insert into StudentTakeAssignment (sid, cid, assignmentNumber, assignmentType)
+values(@sid,@cid,@assignnumber,@assignType)
+
+---l
+go
+create procedure viewAssignGrades  @assignnumber int, @assignType VARCHAR(10), @cid INT, @sid INT, @assignGrade INT output
+as
+select @assignGrade=cast(grade as INT) from StudentTakeAssignment
+where sid=@sid and cid=@cid and assignmentNumber=@assignnumber and assignmentType=@assignType
+
+
+---m
+create function getgrade(grade decimal(5, 2) , weight decimal(4, 1) ,fullGrade int)
+    returns decimal(10,2)
+    begin
+        declare ans decimal(10,2);
+        set ans=(grade/fullGrade) * weight;
+        return  ans;
+    end
+
+go
+create  procedure  viewFinalGrade  @cid INT, @sid INT ,@finalgrade decimal(10,2)  output
+as
+select @finalgrade=sum((grade/fullGrade)*weight) from StudentTakeAssignment
+inner join Assignment on StudentTakeAssignment.cid=Assignment.cid and StudentTakeAssignment.assignmentType=Assignment.type and StudentTakeAssignment.assignmentNumber=Assignment.number
+where @cid=StudentTakeAssignment.cid and @sid=StudentTakeAssignment.sid
+
+---n
+go
+create procedure addFeedback @comment VARCHAR(100), @cid INT, @sid INT
+as
+insert into Feedback (comments,cid,sid) values (@comment,@cid,@sid)
+
+---o
+go
+create procedure  rateInstructor  @rate DECIMAL (2,1), @sid INT, @insid INT
+as
+insert into StudentRateInstructor (sid, instId, rate) values (@sid,@insid,@rate)
+
+---p
+go
+create procedure viewCertificate  @cid INT, @sid INT
+as
+select * from StudentCertifyCourse
+where sid=@sid and cid=@cid
+
+----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
+-------- NOT FINALIZED YET / MAHMOUD JOBEEL --------------------------------------------
+-----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
+
+
+
+
+
+
     
 
  
