@@ -8,6 +8,7 @@ create table Users
     lastName  varchar(20),
     password  varchar(20),
     gender    bit,
+    email     varchar(10),
     address   varchar(10),
     PRIMARY key (id)
 )
@@ -15,7 +16,7 @@ create table Users
 create table Instructor
 (
     id     int,
-    rating int,
+    rating decimal(2, 1),
     FOREIGN Key (id) references Users,
     PRIMARY KEY (id)
 )
@@ -62,7 +63,7 @@ create table Assignment
 (
     cid       int,
     number    int,
-    type     varchar(10),
+    type      varchar(10),
     fullGrade int,
     weight    decimal(4, 1),
     deadline  datetime,
@@ -125,7 +126,7 @@ create table Feedback
     comments      varchar(100),
     numberOfLikes int,
     sid           int,
-    primary key (cid , number),
+    primary key (cid, number),
     foreign key (cid) references Course,
     foreign key (sid) references Student
 )
@@ -151,7 +152,6 @@ create table StudentHasPromocode
     foreign key (sid) references Student,
     foreign key (code) references Promocode
 )
-
 
 
 create table CreditCard

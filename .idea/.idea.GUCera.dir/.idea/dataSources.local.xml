@@ -1,24 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="Microsoft SQL Server (jTds) - [2]" uuid="803b3a0d-ba91-4a8e-bbce-b2f2c1768e49">
-      <database-info product="Microsoft SQL Server" version="14.00.1000" jdbc-version="3.0" driver-name="jTDS Type 4 JDBC Driver for MS SQL Server and Sybase" driver-version="1.3.1" dbms="MSSQL" exact-version="14.0.1000" exact-driver-version="1.3">
+    <data-source name="Microsoft SQL Server (jTds) -" uuid="22b482d0-2e52-4436-9e1b-2977162bb2df">
+      <database-info product="Microsoft SQL Server" version="14.00.3356" jdbc-version="3.0" driver-name="jTDS Type 4 JDBC Driver for MS SQL Server and Sybase" driver-version="1.3.1" dbms="MSSQL" exact-version="14.0.3356" exact-driver-version="1.3">
         <extra-name-characters>$#@</extra-name-characters>
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
       <secret-storage>master_key</secret-storage>
+      <auth-provider>ms-sso</auth-provider>
       <schema-mapping>
         <introspection-scope>
-          <node negative="1">
-            <node kind="database" qname="@">
-              <node kind="schema" qname="@" />
-            </node>
-            <node kind="database">
-              <name qname="GUCera" />
-              <name qname="master" />
-              <node kind="schema" qname="dbo" />
-            </node>
+          <node kind="database" qname="@">
+            <node kind="schema" qname="@" />
           </node>
         </introspection-scope>
       </schema-mapping>
