@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d41a4f08-5076-4408-b6ec-52823fad0da0" name="Default Changelist" comment="done pages  1 to 3" />
+    <list default="true" id="d41a4f08-5076-4408-b6ec-52823fad0da0" name="Default Changelist" comment="null">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/22b482d0-2e52-4436-9e1b-2977162bb2df.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/22b482d0-2e52-4436-9e1b-2977162bb2df/storage_v2/_src_/database/master.YiqNvw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/22b482d0-2e52-4436-9e1b-2977162bb2df/storage_v2/_src_/database/master.YiqNvw/schema/INFORMATION_SCHEMA.NBgcMw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/22b482d0-2e52-4436-9e1b-2977162bb2df/storage_v2/_src_/database/master.YiqNvw/schema/dbo.sYMBAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/22b482d0-2e52-4436-9e1b-2977162bb2df/storage_v2/_src_/database/master.YiqNvw/schema/dbo.sYMBAA.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/22b482d0-2e52-4436-9e1b-2977162bb2df/storage_v2/_src_/database/master.YiqNvw/schema/sys.zb4BAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procedures.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures.sql" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,7 +37,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="sqlserver" />
-    <property name="RunConfigurationTargetLRU" value="b665a922-7b75-4a75-97f6-4108ffe2d8ba&#10;283d9439-7d70-46e8-b4a8-a9df1af56bf0&#10;803b3a0d-ba91-4a8e-bbce-b2f2c1768e49" />
+    <property name="RunConfigurationTargetLRU" value="b665a922-7b75-4a75-97f6-4108ffe2d8ba&#10;803b3a0d-ba91-4a8e-bbce-b2f2c1768e49&#10;283d9439-7d70-46e8-b4a8-a9df1af56bf0&#10;9479939e-c8b3-4315-a262-a49a9f93aad2" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -48,7 +59,7 @@
     <configuration name="procedures.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
       <script-file value="$PROJECT_DIR$/procedures.sql" />
       <script-mode>FILE</script-mode>
-      <data-source id="803b3a0d-ba91-4a8e-bbce-b2f2c1768e49" />
+      <data-source id="9479939e-c8b3-4315-a262-a49a9f93aad2" />
       <method v="2" />
     </configuration>
     <list>
@@ -73,6 +84,7 @@
       <workItem from="1608325328202" duration="6265000" />
       <workItem from="1608332445547" duration="396000" />
       <workItem from="1608419713016" duration="7287000" />
+      <workItem from="1608804702861" duration="6701000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1608328407060</created>
