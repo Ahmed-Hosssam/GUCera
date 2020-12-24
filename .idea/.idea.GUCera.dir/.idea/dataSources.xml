@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="Microsoft SQL Server (jTds) -" uuid="22b482d0-2e52-4436-9e1b-2977162bb2df">
+    <data-source source="LOCAL" name="Microsoft SQL Server (jTds) -" uuid="283d9439-7d70-46e8-b4a8-a9df1af56bf0">
       <driver-ref>sqlserver.jtds</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>net.sourceforge.jtds.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:jtds:sqlserver://./;instance=&lt;pipe name&gt;;namedPipe=true</jdbc-url>
       <jdbc-additional-properties>
         <property name="LOCAL_DB_INSTANCE" value="MSSQLLocalDB" />
-        <property name="LOCAL_DB_EXECUTABLE" value="C:\Program Files\Microsoft SQL Server\140\Tools\Binn\SqlLocalDB.exe" />
+        <property name="LOCAL_DB_EXECUTABLE" value="C:\Program Files\Microsoft SQL Server\130\Tools\Binn\SqlLocalDB.exe" />
       </jdbc-additional-properties>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>

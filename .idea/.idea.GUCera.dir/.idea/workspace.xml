@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d41a4f08-5076-4408-b6ec-52823fad0da0" name="Default Changelist" comment="a">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/shelf/Uncommitted_changes_before_Update_at_12_19_2020_10_00_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/shelf/Uncommitted_changes_before_Update_at_12_19_2020_10_00_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/shelf/Uncommitted_changes_before_Update_at_12_20_2020_7_51_PM__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Project.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procedures.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures.sql" afterDir="false" />
-    </list>
+    <list default="true" id="d41a4f08-5076-4408-b6ec-52823fad0da0" name="Default Changelist" comment="done pages  1 to 3" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,12 +9,10 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$APPLICATION_CONFIG_DIR$/consoles/db/b665a922-7b75-4a75-97f6-4108ffe2d8ba/console.sql" />
-      <option value="$APPLICATION_CONFIG_DIR$/consoles/db/22b482d0-2e52-4436-9e1b-2977162bb2df/console.sql" />
       <option value="$PROJECT_DIR$/Project.sql" />
       <option value="$PROJECT_DIR$/procedures.sql" />
     </changedPaths>
@@ -36,7 +26,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="sqlserver" />
-    <property name="RunConfigurationTargetLRU" value="b665a922-7b75-4a75-97f6-4108ffe2d8ba&#10;283d9439-7d70-46e8-b4a8-a9df1af56bf0&#10;803b3a0d-ba91-4a8e-bbce-b2f2c1768e49&#10;22b482d0-2e52-4436-9e1b-2977162bb2df" />
+    <property name="RunConfigurationTargetLRU" value="b665a922-7b75-4a75-97f6-4108ffe2d8ba&#10;283d9439-7d70-46e8-b4a8-a9df1af56bf0&#10;803b3a0d-ba91-4a8e-bbce-b2f2c1768e49" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -48,11 +38,11 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="Database Script.Project.sql">
+  <component name="RunManager" selected="Database Script.procedures.sql">
     <configuration name="Project.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
       <script-file value="$PROJECT_DIR$/Project.sql" />
       <script-mode>FILE</script-mode>
-      <data-source id="22b482d0-2e52-4436-9e1b-2977162bb2df" />
+      <data-source id="803b3a0d-ba91-4a8e-bbce-b2f2c1768e49" />
       <method v="2" />
     </configuration>
     <configuration name="procedures.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
@@ -67,8 +57,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Database Script.Project.sql" />
         <item itemvalue="Database Script.procedures.sql" />
+        <item itemvalue="Database Script.Project.sql" />
       </list>
     </recent_temporary>
   </component>
@@ -83,8 +73,6 @@
       <workItem from="1608325328202" duration="6265000" />
       <workItem from="1608332445547" duration="396000" />
       <workItem from="1608419713016" duration="7287000" />
-      <workItem from="1608671385350" duration="6418000" />
-      <workItem from="1608801265046" duration="3125000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1608328407060</created>
@@ -128,7 +116,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608646541828</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="done pages  1 to 3">
+      <created>1608684464098</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1608684464098</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -154,6 +149,7 @@
     <MESSAGE value="basioni's first commit&#10;my tables" />
     <MESSAGE value="Added Tables" />
     <MESSAGE value="first 11 procedures but one" />
-    <option name="LAST_COMMIT_MESSAGE" value="first 11 procedures but one" />
+    <MESSAGE value="done pages  1 to 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="done pages  1 to 3" />
   </component>
 </project>
