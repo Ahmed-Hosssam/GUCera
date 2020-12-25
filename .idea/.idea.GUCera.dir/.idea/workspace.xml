@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d41a4f08-5076-4408-b6ec-52823fad0da0" name="Default Changelist" comment="Added new Procedures">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/283d9439-7d70-46e8-b4a8-a9df1af56bf0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/283d9439-7d70-46e8-b4a8-a9df1af56bf0/storage_v2/_src_/database/GUCera.H-D1fQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/283d9439-7d70-46e8-b4a8-a9df1af56bf0/storage_v2/_src_/database/GUCera.H-D1fQ/schema/INFORMATION_SCHEMA.NBgcMw.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/283d9439-7d70-46e8-b4a8-a9df1af56bf0/storage_v2/_src_/database/GUCera.H-D1fQ/schema/sys.zb4BAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/283d9439-7d70-46e8-b4a8-a9df1af56bf0/storage_v2/_src_/database/master.YiqNvw.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/283d9439-7d70-46e8-b4a8-a9df1af56bf0/storage_v2/_src_/database/master.YiqNvw/schema/INFORMATION_SCHEMA.NBgcMw.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/283d9439-7d70-46e8-b4a8-a9df1af56bf0/storage_v2/_src_/database/master.YiqNvw/schema/dbo.sYMBAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/283d9439-7d70-46e8-b4a8-a9df1af56bf0/storage_v2/_src_/database/master.YiqNvw/schema/dbo.sYMBAA.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/283d9439-7d70-46e8-b4a8-a9df1af56bf0/storage_v2/_src_/database/master.YiqNvw/schema/sys.zb4BAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="d41a4f08-5076-4408-b6ec-52823fad0da0" name="Default Changelist" comment="added procedures">
+      <change beforePath="$PROJECT_DIR$/procedures.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,6 +78,7 @@
       <workItem from="1608804702861" duration="7156000" />
       <workItem from="1608813352379" duration="926000" />
       <workItem from="1608898443578" duration="518000" />
+      <workItem from="1608911574506" duration="296000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1608328407060</created>
@@ -144,7 +136,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608813013072</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="added procedures">
+      <created>1608911623111</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1608911623111</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,6 +171,7 @@
     <MESSAGE value="first 11 procedures but one" />
     <MESSAGE value="done pages  1 to 3" />
     <MESSAGE value="Added new Procedures" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added new Procedures" />
+    <MESSAGE value="added procedures" />
+    <option name="LAST_COMMIT_MESSAGE" value="added procedures" />
   </component>
 </project>

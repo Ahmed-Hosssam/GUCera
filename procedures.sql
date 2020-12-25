@@ -161,13 +161,6 @@ select firstName, lastName, gender, email, address, gpa
 from Student
          inner join Users on Student.id = Users.id
 where @sid = Student.id
-  and Student.id is not null
-  and Student.gpa is not null
-  and Users.firstName is not null
-  and Users.lastName is not null
-  and Users.password is not null
-  and Users.address is not null
-  and Users.gender is not null
 GO;
 /*   (Student.id or Student.gpa or u.gender or u.address or u.firstName or u.lastName or u.password) is not null
 */
