@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d41a4f08-5076-4408-b6ec-52823fad0da0" name="Default Changelist" comment="null">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/22b482d0-2e52-4436-9e1b-2977162bb2df.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/22b482d0-2e52-4436-9e1b-2977162bb2df/storage_v2/_src_/database/master.YiqNvw.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/22b482d0-2e52-4436-9e1b-2977162bb2df/storage_v2/_src_/database/master.YiqNvw/schema/INFORMATION_SCHEMA.NBgcMw.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/22b482d0-2e52-4436-9e1b-2977162bb2df/storage_v2/_src_/database/master.YiqNvw/schema/dbo.sYMBAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/22b482d0-2e52-4436-9e1b-2977162bb2df/storage_v2/_src_/database/master.YiqNvw/schema/dbo.sYMBAA.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/22b482d0-2e52-4436-9e1b-2977162bb2df/storage_v2/_src_/database/master.YiqNvw/schema/sys.zb4BAA.meta" beforeDir="false" />
+    <list default="true" id="d41a4f08-5076-4408-b6ec-52823fad0da0" name="Default Changelist" comment="Added new Procedures">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/283d9439-7d70-46e8-b4a8-a9df1af56bf0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/283d9439-7d70-46e8-b4a8-a9df1af56bf0/storage_v2/_src_/database/GUCera.H-D1fQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/283d9439-7d70-46e8-b4a8-a9df1af56bf0/storage_v2/_src_/database/GUCera.H-D1fQ/schema/INFORMATION_SCHEMA.NBgcMw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/283d9439-7d70-46e8-b4a8-a9df1af56bf0/storage_v2/_src_/database/GUCera.H-D1fQ/schema/sys.zb4BAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/283d9439-7d70-46e8-b4a8-a9df1af56bf0/storage_v2/_src_/database/master.YiqNvw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/283d9439-7d70-46e8-b4a8-a9df1af56bf0/storage_v2/_src_/database/master.YiqNvw/schema/INFORMATION_SCHEMA.NBgcMw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/283d9439-7d70-46e8-b4a8-a9df1af56bf0/storage_v2/_src_/database/master.YiqNvw/schema/dbo.sYMBAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/283d9439-7d70-46e8-b4a8-a9df1af56bf0/storage_v2/_src_/database/master.YiqNvw/schema/dbo.sYMBAA.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/dataSources/283d9439-7d70-46e8-b4a8-a9df1af56bf0/storage_v2/_src_/database/master.YiqNvw/schema/sys.zb4BAA.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GUCera.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procedures.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +84,9 @@
       <workItem from="1608325328202" duration="6265000" />
       <workItem from="1608332445547" duration="396000" />
       <workItem from="1608419713016" duration="7287000" />
-      <workItem from="1608804702861" duration="6701000" />
+      <workItem from="1608804702861" duration="7156000" />
+      <workItem from="1608813352379" duration="926000" />
+      <workItem from="1608898443578" duration="518000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1608328407060</created>
@@ -135,7 +137,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608684464098</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added new Procedures">
+      <created>1608813013072</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1608813013072</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -162,6 +171,7 @@
     <MESSAGE value="Added Tables" />
     <MESSAGE value="first 11 procedures but one" />
     <MESSAGE value="done pages  1 to 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="done pages  1 to 3" />
+    <MESSAGE value="Added new Procedures" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added new Procedures" />
   </component>
 </project>
