@@ -8,7 +8,7 @@ create table Users
     lastName  varchar(20),
     password  varchar(20),
     gender    bit,
-    email     varchar(10),
+    email     varchar(50),
     address   varchar(10),
     PRIMARY key (id)
 )
@@ -177,7 +177,7 @@ create table StudentTakeCourse
     sid      int,
     cid      int,
     instId   int,
-    payedfor decimal(10, 2),
+    payedfor bit,
     grade    decimal(10, 2),
     primary key (sid, cid, instId),
     foreign key (sid) references Student,
