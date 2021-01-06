@@ -2,19 +2,24 @@
 create proc studentRegister @first_name varchar(20), @last_name varchar(20), @password varchar(20), @email varchar(50),
                             @gender bit, @address varchar(10)
 as
-insert into Users (firstName, lastName, password, gender, email, address)
-values (@first_name, @last_name, @password, @gender, @email, @address)
-declare @sid int;
-select @sid = max(id)
-from Users
-where firstName = @first_name
-  and lastName = @last_name
-  and password = @password
-  and email = @email
-  and gender = @gender
-  and address = @address
-insert into Student (id)
-values (@sid)
+    IF NOT EXISTS(SELECT *
+                  from Users
+                  where email = @email)
+        BEGIN
+            insert into Users (firstName, lastName, password, gender, email, address)
+            values (@first_name, @last_name, @password, @gender, @email, @address)
+            declare @sid int;
+            select @sid = max(id)
+            from Users
+            where firstName = @first_name
+              and lastName = @last_name
+              and password = @password
+              and email = @email
+              and gender = @gender
+              and address = @address
+            insert into Student (id)
+            values (@sid)
+        END
 go;
 
 --Register
@@ -22,19 +27,24 @@ create proc InstructorRegister @first_name varchar(20), @last_name varchar(20), 
                                @email varchar(50),
                                @gender bit, @address varchar(10)
 as
-insert into Users (firstName, lastName, password, gender, email, address)
-values (@first_name, @last_name, @password, @gender, @email, @address)
-declare @instid int;
-select @instid = max(id)
-from Users
-where firstName = @first_name
-  and lastName = @last_name
-  and password = @password
-  and email = @email
-  and gender = @gender
-  and address = @address
-insert into Instructor (id)
-values (@instid)
+    IF NOT EXISTS(SELECT *
+                  from Users
+                  where email = @email)
+        BEGIN
+            insert into Users (firstName, lastName, password, gender, email, address)
+            values (@first_name, @last_name, @password, @gender, @email, @address)
+            declare @instid int;
+            select @instid = max(id)
+            from Users
+            where firstName = @first_name
+              and lastName = @last_name
+              and password = @password
+              and email = @email
+              and gender = @gender
+              and address = @address
+            insert into Instructor (id)
+            values (@instid)
+        END
 go;
 
 
@@ -76,8 +86,13 @@ go;
 -- add my telephone number(s)
 create proc addMobile @ID int, @mobile_number varchar(20)
 as
-insert into UserMobileNumber (id, mobileNumber)
-values (@ID, @mobile_number)
+    if not exists(select *
+                  from UserMobileNumber
+                  where @mobile_number = mobileNumber)
+        begin
+            insert into UserMobileNumber (id, mobileNumber)
+            values (@ID, @mobile_number)
+        end
 go;
 
 
@@ -103,7 +118,7 @@ go;
 -- List all courses in the system.
 create proc AdminViewAllCourses
 as
-select *
+select name, creditHours, price, content, accepted
 from Course
 go;
 
@@ -111,7 +126,7 @@ go;
 -- List all the courses added by instructors not yet accepted.
 create proc AdminViewNonAcceptedCourses
 as
-select *
+select name, creditHours, price, content
 from Course
 where accepted = 0
 go;
@@ -120,7 +135,7 @@ go;
 -- View any course details such as course description and content.
 create proc AdminViewCourseDetails @courseId int
 as
-select *
+select name, creditHours, price, content, accepted
 from Course
 where id = @courseId
 go;
@@ -129,10 +144,15 @@ go;
 -- Accept/Reject any of the requested courses that are added by instructors.
 create proc AdminAcceptRejectCourse @adminId int, @courseId int
 as
-update Course
-set adminId  = @adminId,
-    accepted = 1
-where id = @courseId
+    IF EXISTS(SELECT *
+              FROM Admin
+              where id = @adminId)
+        BEGIN
+            update Course
+            set adminId  = @adminId,
+                accepted = 1
+            where id = @courseId
+        END
 go;
 
 
@@ -140,14 +160,20 @@ go;
 create proc AdminCreatePromocode @code varchar(6), @isuueDate datetime, @expiryDate datetime, @discount decimal(4, 2),
                                  @adminId int
 as
-insert into Promocode (code, issueDate, expiryDate, discountamount, adminId)
-values (@code, @isuueDate, @expiryDate, @discount, @adminId)
+    IF EXISTS(SELECT *
+              FROM Admin
+              where id = @adminId)
+        BEGIN
+            insert into Promocode (code, issueDate, expiryDate, discountamount, adminId)
+            values (@code, @isuueDate, @expiryDate, @discount, @adminId)
+        END
 go;
 
 
 /*3 - h List all students in the system */
 create proc AdminListAllStudents
 as
+
 select firstName, lastName
 from Student
          inner join Users U on Student.id = U.id
@@ -182,13 +208,18 @@ create proc InstAddCourse @creditHours int,
                           @price DECIMAL(6, 2),
                           @instructorId int
 as
-insert into Course (creditHours, name, price, instructorId)
-values (@creditHours, @name, @price, @instructorId)
-declare @z int
-select @z = max(Course.id)
-from Course
-insert into InstructorTeachCourse
-values (@instructorId, @z)
+    IF EXISTS(SELECT *
+              FROM Instructor
+              WHERE id = @instructorId)
+        BEGIN
+            insert into Course (creditHours, name, price, instructorId)
+            values (@creditHours, @name, @price, @instructorId)
+            declare @z int
+            select @z = max(Course.id)
+            from Course
+            insert into InstructorTeachCourse
+            values (@instructorId, @z)
+        END
 GO;
 
 
@@ -197,32 +228,35 @@ create proc UpdateCourseContent @instrId int,
                                 @courseId int,
                                 @content varchar(20)
 as
-update Course
-set Course.courseDescription = @content
-where Course.id = @courseId
-  and Course.accepted = 1
-  and EXISTS(
-        select *
-        from InstructorTeachCourse IT
-        where IT.instId = @instrId
-          and IT.cid = @courseId
-    )
+    if EXISTS(
+            select *
+            from InstructorTeachCourse IT
+            where IT.instId = @instrId
+              and IT.cid = @courseId
+        )
+        BEGIN
+            update Course
+            set content = @content
+            where Course.id = @courseId
+        END
 GO;
 
 create proc UpdateCourseDescription @instrId int,
                                     @courseId int,
                                     @courseDescription varchar(200)
 as
-update Course
-set Course.courseDescription = @courseDescription
-where Course.id = @courseId
-  and Course.accepted = 1
-  and exists(
-        select *
-        from InstructorTeachCourse IT
-        where IT.instId = @instrId
-          and IT.cid = @courseId
-    )
+    if exists(
+            select *
+            from InstructorTeachCourse IT
+            where IT.instId = @instrId
+              and IT.cid = @courseId
+        )
+        begin
+            update Course
+            set Course.courseDescription = @courseDescription
+            where Course.id = @courseId
+              and Course.accepted = 1
+        end
 go;
 
 
@@ -232,11 +266,14 @@ create proc AddAnotherInstructorToCourse @insid int,
                                          @adderIns int
 as
     if exists(select *
-              from Course
-              where Course.id = @cid
-                and Course.instructorId = @adderIns)
+              from InstructorTeachCourse
+              where cid = @cid
+                and instId = @adderIns)
         begin
-            insert into InstructorTeachCourse values (@insId, @cid)
+            if exists(select * from Instructor where id = @insid)
+                begin
+                    insert into InstructorTeachCourse values (@insId, @cid)
+                end
         end
 GO;
 
@@ -244,11 +281,16 @@ GO;
 -- View my courses that were accepted by the admin 
 create proc InstructorViewAcceptedCoursesByAdmin @instrId int
 as
-select Course.id
-from Course
-         inner join InstructorTeachCourse on Course.id = InstructorTeachCourse.cid
-where instId = @instrId
-  and Course.accepted = 1
+    if exists(select *
+              from Instructor
+              where id = @instrId)
+        BEGIN
+            select Course.id
+            from Course
+                     inner join InstructorTeachCourse on Course.id = InstructorTeachCourse.cid
+            where instId = @instrId
+              and Course.accepted = 1
+        END;
 GO;
 
 
@@ -273,9 +315,10 @@ create proc DefineAssignmentOfCourseOfCertianType @instId int,
 as
     if exists(select *
               from InstructorTeachCourse
+                       inner join Course C on C.id = InstructorTeachCourse.cid
               where instId = @instId
                 and cid = @cid
-        )
+                and c.accepted = 1)
         begin
             insert into Assignment values (@cid, @number, @type, @fullGrade, @weight, @deadline, @content)
         end
@@ -285,7 +328,7 @@ GO;
 create proc updateInstructorRate @insid int
 as
 declare @rate decimal(2, 1);
-Select avg(rate)
+Select @rate = avg(rate)
 from StudentRateInstructor
 where instId = @insid;
 
@@ -300,8 +343,8 @@ as
     EXEC updateInstructorRate @instrId;
 SELECT firstName, lastName, gender, email, address, rating, mobileNumber
 from Users U
+         left outer JOIN UserMobileNumber UMN on U.id = UMN.id
          Inner Join Instructor I on U.id = I.id
-         INNER JOIN UserMobileNumber UMN on U.id = UMN.id
 
 where U.id = @instrId;
 go;
@@ -336,8 +379,12 @@ as
               and cid = @cid
         )
         BEGIN
-            INSERT INTO StudentTakeAssignment(sid, cid, assignmentNumber, assignmentType, grade)
-            values (@sid, @cid, @assignmentNumber, @type, @grade);
+            update StudentTakeAssignment
+            set grade=@grade
+            where sid = @sid
+              and cid = @cid
+              and assignmentNumber = @assignmentNumber
+              and assignmentType = @type;
         end
 go;
 
@@ -347,10 +394,7 @@ create proc ViewFeedbacksAddedByStudentsOnMyCourse @instrId int, @cid int
 as
 SELECT number, comments, numberOfLikes
 from Feedback F
-         INNER JOIN Course C on C.id = F.cid
-         Inner Join Instructor I on I.id = C.instructorId
-where C.id = @cid
-  and I.id = @instrId
+where cid = @cid
 go;
 
 
@@ -364,21 +408,12 @@ as
               and cid = @cid
         )
         Begin
-            Declare @grade decimal(5, 2);
-            SELECT @grade = sum(STA.grade * A.weight)
-            FROM Assignment A
-                     inner join StudentTakeAssignment STA
-                                on A.cid = STA.cid and A.number = STA.assignmentNumber and A.type = STA.assignmentType
-            where A.cid = @cid
-              and STA.sid = @sid;
-            declare @sum int;
-            SELECT @sum = sum(weight)
-            FROM Assignment A
-                     inner join StudentTakeAssignment STA
-                                on A.cid = STA.cid and A.number = STA.assignmentNumber and A.type = STA.assignmentType
-            UPDATE StudentTakeAssignment
-            set grade=@grade / @sum
-            where sid = @sid;
+            Declare @grade decimal(10, 2);
+            EXEC viewFinalGrade @cid, @sid, @grade output;
+            UPDATE StudentTakeCourse
+            set grade=@grade
+            where sid = @sid
+              and @cid = cid;
         END;
 go;
 
@@ -386,7 +421,6 @@ go;
 /*Instructor issue certificate to a student upon course completion.*/
 create proc InstructorIssueCertificateToStudent @cid int, @sid int, @insId int, @issueDate datetime
 as
-    Exec calculateFinalGrade @cid, @sid, @insId;
     IF EXISTS(
             SELECT *
             from InstructorTeachCourse
@@ -394,13 +428,16 @@ as
               and cid = @cid
         )
         Begin
+            exec calculateFinalGrade @cid, @sid, @insId
             declare @grade decimal(10, 2);
             select @grade = grade
             from StudentTakeCourse
             where sid = @sid
               and cid = @cid;
-            if (@grade > 50)
-                insert into StudentCertifyCourse (sid, cid, issueDate) values (@sid, @cid, @issueDate);
+            if (@grade >= 50)
+                begin
+                    insert into StudentCertifyCourse (sid, cid, issueDate) values (@sid, @cid, @issueDate);
+                end
         end
 go;
 
@@ -414,11 +451,9 @@ SELECT S.id,
        lastName,
        password,
        gender,
-       email,
-       address
+       email
 from Student S
          Inner Join Users U on U.id = S.id
-         Inner Join UserMobileNumber UMN on U.id = UMN.id
 where S.id = @id;
 go;
 
@@ -449,7 +484,15 @@ go;
 /*View detailed information about a course such as course description and instructorsname.*/
 create proc courseInformation @id int
 as
-SELECT creditHours, name, courseDescription, firstName, lastName
+SELECT creditHours,
+       name,
+       courseDescription,
+       price,
+       content,
+       adminId,
+       instructorId,
+       firstName,
+       lastName
 from Course C
          INNER JOIN Users U on C.instructorId = U.id
 where C.instructorId = @id
@@ -481,11 +524,16 @@ go;
 create proc addCreditCard @sid int, @number varchar(15), @cardHolderName varchar(16), @expiryDate datetime,
                           @cvv varchar(3)
 as
-Insert Into CreditCard(number, cardHolderName, expiryDate, cvv)
-values (@number, @cardHolderName, @expiryDate, @cvv);
+    if not exists(select *
+                  from CreditCard
+                  where number = @number)
+        begin
+            Insert Into CreditCard(number, cardHolderName, expiryDate, cvv)
+            values (@number, @cardHolderName, @expiryDate, @cvv);
 
-Insert Into StudentAddCreditCard(sid, creditCardNumber)
-values (@sid, @number);
+            Insert Into StudentAddCreditCard(sid, creditCardNumber)
+            values (@sid, @number);
+        end;
 go;
 
 
@@ -500,8 +548,17 @@ go;
 
 create procedure payCourse @cid INT, @sid INT
 as
-insert into StudentTakeCourse (sid, cid, payedfor)
-values (@sid, @cid, 1)
+    if not EXISTS(SELECT *
+                  FROM StudentTakeCourse
+                  WHERE @cid = cid
+                    AND sid = @sid
+                    and payedfor = 1)
+        BEGIN
+            update StudentTakeCourse
+            set payedfor = 1
+            where @cid = cid
+              and @sid = sid;
+        end
 go;
 
 
@@ -519,15 +576,24 @@ create procedure viewAssign @courseId int, @Sid int
 as
 select A.cid, A.number, A.type, A.fullGrade, A.weight, A.deadline, A.content
 from Assignment A
-         inner join StudentTakeCourse STC on A.cid = STC.cid and A.cid = STC.cid
-where @Sid = STC.sid
+         inner join StudentTakeAssignment STA on A.cid = STA.cid and A.cid = STA.cid
+where @Sid = STA.sid
+  and STA.cid = @courseId
 go;
 
 
 create procedure submitAssign @assignType VARCHAR(10), @assignnumber int, @sid INT, @cid INT
 as
-insert into StudentTakeAssignment (sid, cid, assignmentNumber, assignmentType)
-values (@sid, @cid, @assignnumber, @assignType)
+    if not exists(select *
+                  from StudentTakeAssignment
+                  where sid = @sid
+                    and @cid = cid
+                    and @assignnumber = assignmentNumber
+                    and @assignType = assignmentType)
+        begin
+            insert into StudentTakeAssignment (sid, cid, assignmentNumber, assignmentType)
+            values (@sid, @cid, @assignnumber, @assignType)
+        end
 go;
 
 
@@ -557,8 +623,14 @@ go;
 
 create procedure addFeedback @comment VARCHAR(100), @cid INT, @sid INT
 as
-insert into Feedback (comments, cid, sid)
-values (@comment, @cid, @sid)
+    if exists(select *
+              from StudentTakeCourse
+              where @sid = sid
+                and @cid = cid)
+        begin
+            insert into Feedback (comments, cid, sid)
+            values (@comment, @cid, @sid)
+        end;
 go;
 
 
@@ -572,8 +644,12 @@ go;
 
 create procedure viewCertificate @cid INT, @sid INT
 as
-select *
+select sid, cid, issueDate
 from StudentCertifyCourse
 where sid = @sid
   and cid = @cid
-go; 
+go;
+TRUNCATE TABLE GUCera.dbo.StudentTakeCourse
+exec InstructorIssueCertificateToStudent 2, 2, 1, '2/2/2019'
+SELECT *
+FROM Student
